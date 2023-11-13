@@ -151,6 +151,11 @@ function generatePassword(){
 
   pass.length = prompt("What is your desired password length? (must be between 8 to 128 characters)","")
   
+  if (isNaN(pass.length) === true) {
+    alert("Your password length must be a numeric value")
+    return ""; 
+  }
+  
   if (pass.length<8){
     alert("Your password must be at least 8 characters")
      return "";
@@ -177,6 +182,6 @@ function generatePassword(){
     alert("You must choose at least one character type!")
      return "";
     }
-
+  
   return genPassword;
 }
