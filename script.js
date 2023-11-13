@@ -43,7 +43,7 @@ let allowedCharacters = "";
 let genPassword = "";
 
 function randomIndex(string) {
-  x= Math.floor(Math.random() * (string.length));
+  x= Math.floor(Math.random() * (string.length + 1));
   return x;
 }
 
