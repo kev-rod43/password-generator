@@ -10,8 +10,31 @@ function writePassword() {
 
 }
 
+function passwordReset(){
+  minLowerCase = "";
+
+  minUpperCase = "";
+
+  minNumeric = "";
+
+  minSpecial = "";
+
+  minReqs = "";
+
+  allowedCharacters = "";
+
+  genPassword = "";
+
+  passwordText ="";
+}
+
+function resetThenWrite(){
+  passwordReset()
+  writePassword()
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", resetThenWrite);
 
 let pass = {
   length: 12,
@@ -43,7 +66,7 @@ let allowedCharacters = "";
 let genPassword = "";
 
 function randomIndex(string) {
-  x= Math.floor(Math.random() * (string.length + 1));
+  x= Math.floor(Math.random() * (string.length));
   return x;
 }
 
