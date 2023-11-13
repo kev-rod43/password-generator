@@ -122,42 +122,38 @@ String.prototype.shuffle = function () {
   }
   return a.join("");
 }
+
 //runs an algorithm that calls functions in order to create a fully random password that satisfies the user's criteria.
 function generatePassword(){
+
   pass.length = prompt("What is your desired password length? (must be between 8 to 128 characters)","")
-  if (pass.length === false){
-    return;
-  }
+  
   if (pass.length<8){
     alert("Your password must be at least 8 characters")
-    generatePassword()
+     return "";
   }
+
   if (pass.length>128){
     alert("Your password can't be longer than 128 characters")
-    generatePassword()
+     return "";
   }
+
   pass.lowerCase = confirm("Press okay if you would like lowercase characters in your password.")
   pass.upperCase = confirm("Press okay if you would like uppercase characters in your password.")
   pass.numeric = confirm("Press okay if you would like numeric characters in your password.")
   pass.special = confirm("Press okay if you would like special characters in your password.")
   console.log(pass.lowerCase + pass.upperCase + pass.numeric + pass.special)
+
   if (pass.lowerCase + pass.upperCase + pass.numeric + pass.special >=1){
     setMinReq();
     concatMin();
     setAllowedChar();
     genUnscrambledPassword();
     genPassword= genPassword.shuffle();
-  } else {
+    } else {
     alert("You must choose at least one character type!")
-    generatePassword()
-  }
+     return "";
+    }
 
-  return genPassword
+  return genPassword;
 }
-//console.log(minLowerCase)
-//console.log(minUpperCase)
-//console.log(minNumeric)
-//console.log(minSpecial)
-//console.log(minReqs)
-//console.log (allowedCharacters)
-//console.log (genPassword)
