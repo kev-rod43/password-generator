@@ -1,5 +1,31 @@
-// Assignment Code
+
 var generateBtn = document.querySelector("#generate");
+
+let pass = {
+  length: "",
+  lowerCase: "",
+  upperCase: "",
+  numeric: "",
+  special: "",
+}
+
+let characters = {
+  lowerCase: "abcdefghijklmnopqrstuvwxyz",
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numeric: "0123456789",
+  special: "\\ /!\"'#$&()*+,-.:;<=>?@[]^_`{|}~",
+}
+//these properties are later assigned, they will later be concatonated to garantee at least one character for each criteria the user chooses
+let min ={
+  lowerCase: "",
+  upperCase: "",
+  numeric: "",
+  special: "",
+  reqs: "",
+}
+let allowedCharacters = "";
+
+let genPassword = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -25,35 +51,6 @@ function resetThenWrite(){
   passwordReset()
   writePassword()
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", resetThenWrite);
-
-let pass = {
-  length: "",
-  lowerCase: "",
-  upperCase: "",
-  numeric: "",
-  special: "",
-}
-
-let characters = {
-  lowerCase: "abcdefghijklmnopqrstuvwxyz",
-  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  numeric: "0123456789",
-  special: "\\ /!\"'#$&()*+,-.:;<=>?@[]^_`{|}~",
-}
-
-let min ={
-  lowerCase: "",
-  upperCase: "",
-  numeric: "",
-  special: "",
-  reqs: "",
-}
-let allowedCharacters = "";
-
-let genPassword = "";
 
 function randomIndex(string) {
   x= Math.floor(Math.random() * (string.length));
@@ -167,3 +164,6 @@ function generatePassword(){
   
   return genPassword;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", resetThenWrite);
